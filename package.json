@@ -1,0 +1,10 @@
+{
+  "name": "com.rustamkhonoff.umediator",
+  "version": "1.0.0",
+  "displayName": "UMediator",
+  "description": "Simple mediator implementation for Unity",
+  "author": {
+    "name": "Shokhrukhkhon Rustamkhonov",
+    "email": "rustamkhonoff@gmail.com"
+  }
+}
