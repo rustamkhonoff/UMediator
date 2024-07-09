@@ -11,7 +11,7 @@ namespace UMediator.Implementation
     public class Mediator : IMediator
     {
         private readonly IMediatorTypeFactory m_typeFactory;
-        private readonly Dictionary<Type, List<Type>> m_notificationHandlerTypes;
+        private readonly Dictionary<Type, HashSet<Type>> m_notificationHandlerTypes;
         private readonly Dictionary<Type, Type> m_requestHandlerTypes;
         private readonly Dictionary<Type, object> m_handlerInstances;
         private readonly Dictionary<Type, RequestHandlerBase> m_requestHandlers;

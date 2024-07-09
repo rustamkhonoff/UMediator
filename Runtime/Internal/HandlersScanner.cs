@@ -12,7 +12,7 @@ namespace UMediator.Internal
     {
         public static IUMediatrHandlersCollection ScanHandlers(params Assembly[] assemblies)
         {
-            Dictionary<Type, List<Type>> notificationHandlerTypes = new();
+            Dictionary<Type, HashSet<Type>> notificationHandlerTypes = new();
             Dictionary<Type, Type> requestHandlerTypes = new();
 
             foreach (Assembly assembly in assemblies)
@@ -36,7 +36,7 @@ namespace UMediator.Internal
                             Type notificationType = genericArguments[0];
                             if (!notificationHandlerTypes.ContainsKey(notificationType))
                             {
-                                notificationHandlerTypes[notificationType] = new List<Type>();
+                                notificationHandlerTypes[notificationType] = new HashSet<Type>();
                             }
 
                             notificationHandlerTypes[notificationType].Add(type);
