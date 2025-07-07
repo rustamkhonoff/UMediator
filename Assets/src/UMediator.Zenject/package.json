@@ -1,7 +1,7 @@
 {
   "name": "com.rustamkhonoff.umediator.zenject",
   "version": "1.0.0",
-  "displayName": "UMediator [Zenject] extension",
+  "displayName": "UMediator.Zenject",
   "description": "Zenject extension for UMediator",
   "author": {
     "name": "rustamkhonoff",
