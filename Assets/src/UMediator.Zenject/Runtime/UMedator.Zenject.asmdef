@@ -1,0 +1,17 @@
+{
+    "name": "UMedator.Zenject",
+    "rootNamespace": "",
+    "references": [
+        "GUID:067933610aaf3c7448de59108c943a42",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
