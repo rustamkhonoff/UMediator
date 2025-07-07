@@ -2,11 +2,10 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using UMediator.Interfaces;
-using UMediator.Internal;
+using UMediator.Implementation.Zenject;
 using Zenject;
 
-namespace UMediator.Implementation.Zenject
+namespace UMediator.Zenject
 {
     public static class ZenjectExtensions
     {

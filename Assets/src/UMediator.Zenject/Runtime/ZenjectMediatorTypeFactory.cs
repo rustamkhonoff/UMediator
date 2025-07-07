@@ -1,6 +1,5 @@
 #if ZENJECT
 using System;
-using UMediator.Interfaces;
 using UnityEngine.SceneManagement;
 using Zenject;
 using Object = UnityEngine.Object;
