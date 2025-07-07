@@ -1,8 +1,10 @@
-namespace UMediator.Sender
+using Cysharp.Threading.Tasks;
+
+namespace UMediator
 {
     public interface ISender
     {
-        T Send<T>(IRequest<T> request);
-        void Send<T>(T request) where T : IRequest;
+        UniTask<T> Send<T>(IRequest<T> request);
+        UniTask Send<T>(T request) where T : IRequest;
     }
 }

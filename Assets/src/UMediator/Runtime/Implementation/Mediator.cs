@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UMediator.Interfaces;
-using UMediator.Internal;
-using UMediator.Publisher;
-using UMediator.Sender;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
 
-namespace UMediator.Implementation
+namespace UMediator
 {
     public class Mediator : IMediator
     {
@@ -26,17 +24,20 @@ namespace UMediator.Implementation
             m_typeFactory = mediatorTypeFactory;
         }
 
-        public void Publish<T>(T notification) where T : INotification
+        public async UniTask Publish<T>(T notification) where T : INotification
         {
             Type notificationType = typeof(T);
-            if (!m_notificationHandlerTypes.TryGetValue(notificationType, out var handlerTypes))
+            if (!m_notificationHandlerTypes.TryGetValue(notificationType, out HashSet<Type> handlerTypes))
+            {
+                Debug.LogWarning($"There is not Handlers for Notification {notificationType.Name}");
                 return;
+            }
 
             foreach (object handler in handlerTypes.Select(GetOrCreateHandlerInstance))
-                ((INotificationHandler<T>)handler).Handle(notification);
+                await ((INotificationHandler<T>)handler).Handle(notification);
         }
 
-        public TResponse Send<TResponse>(IRequest<TResponse> request)
+        public async UniTask<TResponse> Send<TResponse>(IRequest<TResponse> request)
         {
             Type requestType = request.GetType();
 
@@ -56,12 +57,13 @@ namespace UMediator.Implementation
 
             object handlerInstance = GetOrCreateHandlerInstance(handlerType);
 
-            return (TResponse)wrapperInstance.Handle(request, handlerInstance);
+            object result = await wrapperInstance.Handle(request, handlerInstance);
+            return (TResponse)result;
         }
 
-        public void Send<T>(T request) where T : IRequest
+        public async UniTask Send<T>(T request) where T : IRequest
         {
-            Type requestType = request.GetType();
+            Type requestType = typeof(T);
 
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
@@ -78,7 +80,8 @@ namespace UMediator.Implementation
             }
 
             object handlerInstance = GetOrCreateHandlerInstance(handlerType);
-            wrapperInstance.Handle(request, handlerInstance);
+
+            await wrapperInstance.Handle(request, handlerInstance);
         }
 
         private object GetOrCreateHandlerInstance(Type handlerType)

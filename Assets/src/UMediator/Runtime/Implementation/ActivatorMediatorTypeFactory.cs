@@ -1,7 +1,6 @@
 using System;
-using UMediator.Interfaces;
 
-namespace UMediator.Implementation
+namespace UMediator
 {
     public sealed class ActivatorMediatorTypeFactory : IMediatorTypeFactory
     {

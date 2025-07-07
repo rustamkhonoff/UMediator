@@ -1,14 +1,14 @@
-using UMediator.Sender;
+using Cysharp.Threading.Tasks;
 
-namespace UMediator.Implementation
+namespace UMediator
 {
     internal abstract class RequestHandlerWrapper<TResponse> : RequestHandlerBase
     {
-        public abstract TResponse Handle(IRequest<TResponse> request, object handler);
+        public abstract UniTask<TResponse> Handle(IRequest<TResponse> request, object handler);
     }
 
     internal abstract class RequestHandlerWrapper : RequestHandlerBase
     {
-        public abstract Unit Handle(IRequest request, object handler);
+        public abstract UniTask Handle(IRequest request, object handler);
     }
 }

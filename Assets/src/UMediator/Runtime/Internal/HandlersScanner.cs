@@ -2,11 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using UMediator.Publisher;
-using UMediator.Sender;
 using UnityEngine;
 
-namespace UMediator.Internal
+namespace UMediator
 {
     public static class HandlersScanner
     {

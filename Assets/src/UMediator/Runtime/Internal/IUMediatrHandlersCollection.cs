@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace UMediator.Internal
+namespace UMediator
 {
     public interface IUMediatrHandlersCollection
     {

@@ -1,7 +1,9 @@
-namespace UMediator.Publisher
+using Cysharp.Threading.Tasks;
+
+namespace UMediator
 {
     public interface IPublisher
     {
-        void Publish<T>(T notification) where T : INotification;
+        UniTask Publish<T>(T notification) where T : INotification;
     }
 }

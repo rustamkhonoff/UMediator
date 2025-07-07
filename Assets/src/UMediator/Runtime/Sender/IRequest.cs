@@ -1,6 +1,6 @@
-namespace UMediator.Sender
+namespace UMediator
 {
-    public interface IRequest<T>
+    public interface IRequest<out T>
     {
     }
 

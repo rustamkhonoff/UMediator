@@ -1,7 +1,9 @@
-namespace UMediator.Publisher
+using Cysharp.Threading.Tasks;
+
+namespace UMediator
 {
     public interface INotificationHandler<in TNotification> where TNotification : INotification
     {
-        void Handle(TNotification message);
+        UniTask Handle(TNotification message);
     }
 }

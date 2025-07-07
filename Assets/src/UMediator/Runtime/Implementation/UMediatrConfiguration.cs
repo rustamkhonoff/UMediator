@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using UMediator.Interfaces;
 
-namespace UMediator.Implementation
+namespace UMediator
 {
     public class UMediatrConfiguration
     {

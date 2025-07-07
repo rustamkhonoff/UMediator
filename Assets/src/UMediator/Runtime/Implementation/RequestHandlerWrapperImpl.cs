@@ -1,32 +1,33 @@
-using UMediator.Sender;
+using Cysharp.Threading.Tasks;
 
-namespace UMediator.Implementation
+namespace UMediator
 {
     internal class RequestHandlerWrapperImpl<TRequest, TResponse> : RequestHandlerWrapper<TResponse>
         where TRequest : IRequest<TResponse>
     {
-        public override TResponse Handle(IRequest<TResponse> request, object handler)
+        public override UniTask<TResponse> Handle(IRequest<TResponse> request, object handler)
         {
             return ((IRequestHandler<TRequest, TResponse>)handler).Handle((TRequest)request);
         }
 
-        public override object Handle(object request, object handler)
+        public override async UniTask<object> Handle(object request, object handler)
         {
-            return Handle((IRequest<TResponse>)request, handler);
+            TResponse result = await Handle((IRequest<TResponse>)request, handler);
+            return result;
         }
     }
 
     internal class RequestHandlerWrapperImpl<TRequest> : RequestHandlerWrapper where TRequest : IRequest
     {
-        public override object Handle(object request, object handler)
+        public override async UniTask<object> Handle(object request, object handler)
         {
-            return Handle((TRequest)request, handler);
+            await Handle((IRequest)request, handler);
+            return Unit.Empty;
         }
 
-        public override Unit Handle(IRequest request, object handler)
+        public override UniTask Handle(IRequest request, object handler)
         {
-            ((IRequestHandler<TRequest>)handler).Handle((TRequest)request);
-            return Unit.Empty;
+            return ((IRequestHandler<TRequest>)handler).Handle((TRequest)request);
         }
     }
 }

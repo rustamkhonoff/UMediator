@@ -1,7 +1,4 @@
-using UMediator.Publisher;
-using UMediator.Sender;
-
-namespace UMediator.Interfaces
+namespace UMediator
 {
     public interface IMediator : IPublisher, ISender
     {

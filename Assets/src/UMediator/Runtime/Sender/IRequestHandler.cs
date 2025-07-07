@@ -1,11 +1,14 @@
-namespace UMediator.Sender
+using Cysharp.Threading.Tasks;
+
+namespace UMediator
 {
-    public interface IRequestHandler<in TRequest, out TResponse> where TRequest : IRequest<TResponse>
+    public interface IRequestHandler<in TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
-        TResponse Handle(TRequest request);
+        UniTask<TResponse> Handle(TRequest request);
     }
+
     public interface IRequestHandler<in TRequest> where TRequest : IRequest
     {
-        void Handle(TRequest request);
+        UniTask Handle(TRequest request);
     }
 }

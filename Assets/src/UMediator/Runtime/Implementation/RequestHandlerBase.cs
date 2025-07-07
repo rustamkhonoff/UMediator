@@ -1,7 +1,9 @@
-namespace UMediator.Implementation
+using Cysharp.Threading.Tasks;
+
+namespace UMediator
 {
     internal abstract class RequestHandlerBase
     {
-        public abstract object Handle(object request, object handler);
+        public abstract UniTask<object> Handle(object request, object handler);
     }
 }

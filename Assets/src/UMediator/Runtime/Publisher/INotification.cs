@@ -1,4 +1,4 @@
-namespace UMediator.Publisher
+namespace UMediator
 {
     public interface INotification
     {
