@@ -1,4 +1,4 @@
-#if UMEDIATOR_USE_ZENJECT
+#if ZENJECT
 using System;
 using System.Linq;
 using System.Reflection;

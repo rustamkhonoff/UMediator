@@ -1,4 +1,4 @@
-#if UMEDIATOR_USE_ZENJECT
+#if ZENJECT
 using System;
 using UMediator.Interfaces;
 using UnityEngine.SceneManagement;

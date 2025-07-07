@@ -10,7 +10,7 @@ namespace UMediator.Editor
         private const int Height = 250;
         private const int Margin = 10;
         private const string ImagePath = "Packages/com.rustamkhonoff.umediator/Editor/Images/umediator_logo.jpg";
-        private const string ZenjectDefine = "UMEDIATOR_USE_ZENJECT";
+        private const string ZenjectDefine = "ZENJECT";
 
 
         [MenuItem("Plugins/UMediator/Open Setup Window")]
