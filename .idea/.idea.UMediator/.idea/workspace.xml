@@ -4,16 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd407d5-c03b-4834-aed8-c97347c9e736" name="Changes" comment="" />
+    <list default="true" id="fdd407d5-c03b-4834-aed8-c97347c9e736" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UMediator/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UMediator/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UMediator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UMediator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sandbox/1. Simple Request/Main.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sandbox/1. Simple Request/Main.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sandbox/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sandbox/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator.Zenject/Runtime/ZenjectExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/src/UMediator.Zenject/Runtime/ZenjectExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator.Zenject/Runtime/ZenjectMediatorTypeFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator.Zenject/Runtime/ZenjectMediatorTypeFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/ActivatorMediatorTypeFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/ActivatorMediatorTypeFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/Mediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/Mediator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/RequestHandlerBase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/RequestHandlerBase.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/RequestHandlerWrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/RequestHandlerWrapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/RequestHandlerWrapperImpl.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/RequestHandlerWrapperImpl.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/UMediatrConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Implementation/UMediatrConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Interfaces/IMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Interfaces/IMediator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Interfaces/IMediatorTypeFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Interfaces/IMediatorTypeFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Publisher/INotificationHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Publisher/INotificationHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Publisher/IPublisher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Publisher/IPublisher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Sender/IRequestHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Sender/IRequestHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Sender/ISender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/src/UMediator/Runtime/Sender/ISender.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/d8/ca03f838/IServiceProvider.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2zXc116Wpzh8QvN8YnZrBZyiBci" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,11 +67,29 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "rider.run.widget.enabled.cache": "false",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="D:\Programs\UnityVersions\2022.3.62f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath D:\Work\Fork\UMediator -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\Work\Fork\UMediator" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="D:\Programs\UnityVersions\2022.3.62f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\Work\Fork\UMediator -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\Work\Fork\UMediator" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.62f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -72,6 +128,8 @@
       <option name="presentableId" value="Default" />
       <updated>1751880639429</updated>
       <workItem from="1751880640871" duration="2231000" />
+      <workItem from="1758730465202" duration="7307000" />
+      <workItem from="1758737871291" duration="3741000" />
     </task>
     <servers />
   </component>
@@ -79,8 +137,17 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

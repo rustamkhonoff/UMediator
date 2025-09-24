@@ -7,13 +7,6 @@ namespace UMediator
     public class UMediatrConfiguration
     {
         public List<Assembly> TargetAssemblies { get; } = new();
-        public IMediatorTypeFactory CustomMediatorTypeFactory { get; private set; }
-
-        public UMediatrConfiguration SetCustomMediatorTypeFactory(IMediatorTypeFactory mediatorTypeFactory)
-        {
-            CustomMediatorTypeFactory = mediatorTypeFactory;
-            return this;
-        }
 
         /// <summary>
         /// Adds assembly which contains given type

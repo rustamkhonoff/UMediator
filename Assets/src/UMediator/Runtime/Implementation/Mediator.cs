@@ -1,98 +1,83 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
+using UMediator.Pipeline;
 
 namespace UMediator
 {
+    public interface IMediatorServiceProvider
+    {
+        T GetService<T>();
+    }
+
     public class Mediator : IMediator
     {
-        private readonly IMediatorTypeFactory m_typeFactory;
-        private readonly Dictionary<Type, HashSet<Type>> m_notificationHandlerTypes;
-        private readonly Dictionary<Type, Type> m_requestHandlerTypes;
-        private readonly Dictionary<Type, object> m_handlerInstances;
-        private readonly Dictionary<Type, RequestHandlerBase> m_requestHandlers;
+        private readonly IMediatorServiceProvider m_serviceProvider;
+        private readonly Dictionary<Type, RequestHandlerWrapperBase> m_wrappers = new();
 
-        public Mediator(IUMediatrHandlersCollection handlersCollection, IMediatorTypeFactory mediatorTypeFactory)
+        public Mediator(IMediatorServiceProvider serviceProvider)
         {
-            m_handlerInstances = new Dictionary<Type, object>();
-            m_requestHandlers = new Dictionary<Type, RequestHandlerBase>();
-
-            m_notificationHandlerTypes = handlersCollection.NotificationHandlerTypes;
-            m_requestHandlerTypes = handlersCollection.RequestHandlerTypes;
-            m_typeFactory = mediatorTypeFactory;
+            m_serviceProvider = serviceProvider;
         }
 
-        public async UniTask Publish<T>(T notification) where T : INotification
+        public async UniTask Publish<T>(T notification, CancellationToken ct = default) where T : INotification
         {
-            Type notificationType = typeof(T);
-            if (!m_notificationHandlerTypes.TryGetValue(notificationType, out HashSet<Type> handlerTypes))
+            if (notification == null) throw new ArgumentNullException(nameof(notification));
+
+            var behaviors = m_serviceProvider.GetService<IEnumerable<INotificationBehavior<T>>>().ToArray();
+
+            var handlers = m_serviceProvider.GetService<IEnumerable<INotificationHandler<T>>>();
+
+            foreach (var handler in handlers)
             {
-                Debug.LogWarning($"There is not Handlers for Notification {notificationType.Name}");
-                return;
+                NotificationHandlerDelegate pipeline = PipelineBuilder(() => handler.Handle(notification, ct), ct);
+                await pipeline();
             }
 
-            foreach (object handler in handlerTypes.Select(GetOrCreateHandlerInstance))
-                await ((INotificationHandler<T>)handler).Handle(notification);
+            return;
+
+            NotificationHandlerDelegate PipelineBuilder(NotificationHandlerDelegate last, CancellationToken token) =>
+                behaviors
+                    .Reverse()
+                    .Aggregate(last, (next, behavior) => () => behavior.Handle(notification, next, token));
         }
 
-        public async UniTask<TResponse> Send<TResponse>(IRequest<TResponse> request)
+        public async UniTask<TResponse> Send<TResponse>(IRequest<TResponse> request, CancellationToken ct = default)
         {
+            if (request == null)
+                throw new ArgumentNullException(nameof(request));
+
             Type requestType = request.GetType();
 
-            if (request == null)
-                throw new ArgumentNullException(nameof(request));
-
-            if (!m_requestHandlerTypes.TryGetValue(requestType, out Type handlerType))
-                throw new InvalidOperationException($"Handler not found for request type {requestType.Name}");
-
-            if (!m_requestHandlers.TryGetValue(requestType, out RequestHandlerBase wrapperInstance))
+            if (!m_wrappers.TryGetValue(requestType, out RequestHandlerWrapperBase wrapper))
             {
                 Type wrapperType = typeof(RequestHandlerWrapperImpl<,>).MakeGenericType(requestType, typeof(TResponse));
-                RequestHandlerBase wrapper = (RequestHandlerBase)Activator.CreateInstance(wrapperType);
-                wrapperInstance = wrapper;
-                m_requestHandlers.Add(requestType, wrapper);
+
+                wrapper = (RequestHandlerWrapperBase)Activator.CreateInstance(wrapperType)!;
+                m_wrappers[requestType] = wrapper;
             }
 
-            object handlerInstance = GetOrCreateHandlerInstance(handlerType);
-
-            object result = await wrapperInstance.Handle(request, handlerInstance);
-            return (TResponse)result;
+            return await ((RequestHandlerWrapper<TResponse>)wrapper).Handle(request, m_serviceProvider, ct);
         }
 
-        public async UniTask Send<T>(T request) where T : IRequest
+        public async UniTask Send<T>(T request, CancellationToken ct = default) where T : IRequest
         {
-            Type requestType = typeof(T);
-
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
 
-            if (!m_requestHandlerTypes.TryGetValue(requestType, out Type handlerType))
-                throw new InvalidOperationException($"Handler not found for request type {requestType.Name}");
+            Type requestType = request.GetType();
 
-            if (!m_requestHandlers.TryGetValue(requestType, out RequestHandlerBase wrapperInstance))
+            if (!m_wrappers.TryGetValue(requestType, out RequestHandlerWrapperBase wrapper))
             {
                 Type wrapperType = typeof(RequestHandlerWrapperImpl<>).MakeGenericType(requestType);
-                RequestHandlerBase wrapper = (RequestHandlerBase)Activator.CreateInstance(wrapperType);
-                wrapperInstance = wrapper;
-                m_requestHandlers.Add(requestType, wrapper);
+
+                wrapper = (RequestHandlerWrapperBase)Activator.CreateInstance(wrapperType)!;
+                m_wrappers[requestType] = wrapper;
             }
 
-            object handlerInstance = GetOrCreateHandlerInstance(handlerType);
-
-            await wrapperInstance.Handle(request, handlerInstance);
-        }
-
-        private object GetOrCreateHandlerInstance(Type handlerType)
-        {
-            if (m_handlerInstances.TryGetValue(handlerType, out object handler))
-                return handler;
-
-            handler = m_typeFactory.CreateInstanceFor(handlerType);
-            m_handlerInstances[handlerType] = handler;
-
-            return handler;
+            await ((RequestHandlerWrapper)wrapper).Handle(request, m_serviceProvider, ct);
         }
     }
 }
