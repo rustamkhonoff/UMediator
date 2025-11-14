@@ -1,0 +1,25 @@
+{
+    "name": "UMedator.Reflex",
+    "rootNamespace": "",
+    "references": [
+        "GUID:067933610aaf3c7448de59108c943a42",
+        "GUID:1530a967b84cfb44dbdd5e8a1989764f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "REFLEX"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.gustavopsantos.reflex",
+            "expression": "0.0.0",
+            "define": "REFLEX"
+        }
+    ],
+    "noEngineReferences": false
+}

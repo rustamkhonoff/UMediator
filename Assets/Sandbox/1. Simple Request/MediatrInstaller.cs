@@ -1,4 +1,5 @@
-﻿using UMediator.Zenject;
+﻿#if ZENJECT
+using UMediator.Zenject;
 using Zenject;
 
 namespace Sandbox._1._Simple_Request
@@ -11,3 +12,4 @@ namespace Sandbox._1._Simple_Request
         }
     }
 }
+#endif

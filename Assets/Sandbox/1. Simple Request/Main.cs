@@ -1,17 +1,20 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UMediator;
 using UMediator.Pipeline;
 using UnityEngine;
 using UnityEngine.Scripting;
-using Zenject;
 
 namespace Sandbox._1._Simple_Request
 {
     public class Main_SimpleRequest : MonoBehaviour
     {
-        [Inject] private IMediator m_mediator;
+#if ZENJECT
+        [Zenject.Inject]
+#elif REFLEX
+        [Reflex.Attributes.Inject]
+#endif
+        private IMediator m_mediator;
 
         private void Update()
         {

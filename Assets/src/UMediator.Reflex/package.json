@@ -1,0 +1,10 @@
+{
+  "name": "com.rustamkhonoff.umediator.reflex",
+  "version": "1.0.0",
+  "displayName": "UMediator.Reflex",
+  "description": "Reflex extension for UMediator",
+  "author": {
+    "name": "rustamkhonoff",
+    "email": "rustamkhonoff@gmail.com"
+  }
+}

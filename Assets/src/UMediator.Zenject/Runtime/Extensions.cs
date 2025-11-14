@@ -6,22 +6,7 @@ using Zenject;
 
 namespace UMediator.Zenject
 {
-    public class ZenjectUMediatorServiceProvider : IMediatorServiceProvider
-    {
-        private readonly DiContainer m_container;
-
-        public ZenjectUMediatorServiceProvider(DiContainer container)
-        {
-            m_container = container;
-        }
-
-        public T GetService<T>()
-        {
-            return m_container.Resolve<T>();
-        }
-    }
-
-    public static class ZenjectExtensions
+    public static class Extensions
     {
         public static void AddUMediator(this DiContainer diContainer, params Type[] types)
         {
@@ -60,7 +45,7 @@ namespace UMediator.Zenject
                 diContainer.BindInterfacesTo(type).AsCached();
 
             diContainer
-                .BindInterfacesTo<ZenjectUMediatorServiceProvider>()
+                .BindInterfacesTo<ServiceProvider>()
                 .AsSingle();
 
             diContainer

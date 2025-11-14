@@ -7,12 +7,12 @@
       "dependencies": {},
       "hash": "f213ff497e4ff462a77319cf677cf20cc0860ca9"
     },
-    "com.mathijsbakker.extenject": {
-      "version": "https://github.com/rustamkhonoff/extenject-package.git",
+    "com.gustavopsantos.reflex": {
+      "version": "https://github.com/gustavopsantos/reflex.git?path=/Assets/Reflex/#13.0.3",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "c1c05ff5b1f08e1179546aee206afe19dff7a277"
+      "hash": "3d382e6e1d479380685887ef0c7a7a5492911b99"
     },
     "com.unity.editorcoroutines": {
       "version": "1.0.0",

@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
-    "com.mathijsbakker.extenject": "https://github.com/rustamkhonoff/extenject-package.git",
+    "com.gustavopsantos.reflex": "https://github.com/gustavopsantos/reflex.git?path=/Assets/Reflex/#13.0.3",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.7",
     "com.unity.ugui": "1.0.0",
